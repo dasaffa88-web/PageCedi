@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <title>Ihr persönlicher Energieberater – Strom & Gas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Kostenlose, persönliche Beratung für Strom- und Gastarife. Wir übernehmen Kündigung und Wechsel – Sie sparen Zeit und Geld."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --color-primary: #2e8b57;
+      --color-primary-light: #3cb371;
+      --color-text: #222222;
+      --color-bg: #f5f5f5;
+      --color-white: #ffffff;
+      --color-border: #dddddd;
+      --color-whatsapp: #2e8b57;
+
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --max-width: 1500px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: var(--color-white);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.03em;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #3cb371, #2e8b57);
+    }
+
+    .logo-sub {
+      font-size: 12px;
+      font-weight: 500;
+      color: #666666;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 16px;
+    }
+
+    nav a {
+      padding: 6px 0;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-primary);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: var(--shadow-soft);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--color-primary-light);
+      transform: translateY(-1px);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e9f5ef 100%);
+      padding: 48px 0 40px;
+    }
+
+.hero-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+
+    .hero-eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(31px, 4vw, 41px);
+      line-height: 1.15;
+      font-weight: 700;
+      margin: 0 0 14px;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: #555555;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: #e9f5ef;
+      color: #1f5c3a;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-primary-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: 11px 18px;
+      font-size: 15px;
+      font-weight: 500;
+      border: 1px solid #c7e4d4;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f1faf5;
+      border-color: var(--color-primary);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--color-whatsapp);
+      color: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: 11px 16px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow-soft);
+      transition: filter 0.15s ease, transform 0.1s ease;
+    }
+
+    .btn-whatsapp:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 14px;
+      color: #777777;
+    }
+
+    .hero-note strong {
+      font-weight: 600;
+      color: #444444;
+    }
+
+    .hero-card {
+      background-color: var(--color-white);
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid #e2f0e8;
+    }
+
+    .hero-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-card-title span {
+      font-size: 21px;
+      color: var(--color-primary);
+    }
+
+    .hero-card-sub {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 12px;
+    }
+
+    .hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 10px;
+      font-size: 14px;
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .hero-list li::before {
+      content: "•";
+      color: var(--color-primary);
+      font-size: 17px;
+      line-height: 1.2;
+    }
+
+    .hero-card-footer {
+      font-size: 13px;
+      color: #777777;
+      border-top: 1px dashed #e0e0e0;
+      padding-top: 8px;
+      margin-top: 6px;
+    }
+
+    .section {
+      padding: 40px 0 32px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .section-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 25px;
+      margin: 0 0 6px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      color: #666666;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .benefit-card {
+      background-color: var(--color-white);
+      border-radius: 10px;
+      padding: 14px 14px 12px;
+      border: 1px solid #e6e6e6;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+
+    .benefit-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background-color: #e9f5ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .benefit-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .benefit-text {
+      font-size: 14px;
+      color: #666666;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step-card {
+      background-color: var(--color-white);
+      border-radius: 10px;
+      padding: 16px 14px 14px;
+      border: 1px solid #e6e6e6;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background-color: #e9f5ef;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step-text {
+      font-size: 14px;
+      color: #666666;
+      margin-bottom: 6px;
+    }
+
+    .step-note {
+      font-size: 13px;
+      color: #888888;
+    }
+
+    .trust-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      border: 1px solid #e2f0e8;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .trust-text {
+      font-size: 14px;
+      color: #555555;
+      max-width: 620px;
+    }
+
+    .trust-text strong {
+      font-weight: 600;
+    }
+
+    .trust-tag {
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: #f5faf7;
+      border: 1px solid #d5ebdf;
+      color: #2e6f49;
+      white-space: nowrap;
+    }
+
+    .cta-section {
+      padding: 32px 0 40px;
+      background: linear-gradient(135deg, #e9f5ef 0%, #ffffff 60%, #f5f5f5 100%);
+    }
+
+    .cta-inner {
+      background-color: #ffffff;
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      border: 1px solid #d8e9df;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .cta-text {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .cta-sub {
+      font-size: 14px;
+      color: #666666;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer {
+      background-color: #111111;
+      color: #cccccc;
+      padding: 22px 0 18px;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #bbbbbb;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 880px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+      }
+
+      nav {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .benefits-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="container header-inner">
+        <div class="logo">
+          <div class="logo-mark"></div>
+          <div>
+            <div>Ihr Energieberater</div>
+            <div class="logo-sub">Strom &amp; Gas · Persönliche Beratung</div>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Startseite</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="karriere.html">Karriere</a>
+         <button class="btn-primary" type="button"
+  onclick="window.open('https://wa.me/4915750749995?text=Hallo,%20ich%20m%C3%B6chte%20meinen%20Tarif%20pr%C3%BCfen%20lassen.', '_blank')">
+   <img src="assets/icons/whatsapp.svg" alt="" class="icon">
+  Jetzt Tarif prüfen lassen
+</button>
+
+        </nav>
+      </div>
+    </header>
+
+    <main>
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-inner">
+
+    <!-- TEXT LINKS -->
+ <div class="hero-text">
+      <div class="hero-eyebrow">Strom &amp; Gas · Einfach wechseln</div>
+      <h1 class="hero-title">Ihr persönlicher Weg zum besten Strom- &amp; Gastarif.</h1>
+      <p class="hero-subtitle">
+        Kostenlose, unverbindliche Beratung für Haushalte und Gewerbe. Wir prüfen Ihre aktuellen Verträge,
+        vergleichen die Konditionen und übernehmen auf Wunsch den kompletten Wechsel.
+      </p>
+
+      <div class="hero-badges">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Kostenlose Beratung
+        </div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Persönlicher Ansprechpartner
+        </div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Keine versteckten Kosten
+        </div>
+      </div>
+
+      <div class="hero-actions">
+<button class="btn-primary" type="button"
+  onclick="window.open('https://wa.me/4915750749995?text=Hallo,%20ich%20m%C3%B6chte%20meinen%20Tarif%20pr%C3%BCfen%20lassen.', '_blank')">
+    <img src="assets/icons/whatsapp.svg" alt="" class="icon">
+  Jetzt Tarif prüfen lassen
+</button>
+<button class="btn-whatsapp" type="button"
+  onclick="window.open('https://wa.me/4915750749995?text=Hallo,%20ich%20m%C3%B6chte%20meinen%20Tarif%20pr%C3%BCfen%20lassen.', '_blank')">
+  <img src="assets/icons/whatsapp.svg" alt="" class="icon">
+  Rechnung senden
+</button>
+<button class="btn-mail" type="button"
+  onclick="window.location.href='mailto:c.geitmann@teleson-vertrieb.com'">
+  <img src="assets/icons/mail.svg" alt="" class="icon">
+  E‑Mail senden
+</button>
+
+
+<button class="btn-secondary" type="button"
+  onclick="document.getElementById('beratung').scrollIntoView({ behavior: 'smooth' })">
+  Mehr über die Beratung erfahren
+</button>
+
+      </div>
+
+      <p class="hero-note">
+        <strong>So einfach wie eine Nachricht:</strong> Senden Sie Ihre aktuelle Strom- oder Gasrechnung – den
+        Rest übernehmen wir.
+      </p>
+    </div>
+
+    <!-- HERO-BILD RECHTS -->
+<div class="hero-image">
+  <video autoplay muted loop playsinline>
+    <source src="assets/video/hero.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+  </div>
+
+  
+</section>
+
+      <!-- Vorteile -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">Ihre Vorteile</div>
+            <h2 class="section-title">Einfach sparen – ohne Papierkram und Tarifdschungel.</h2>
+            <p class="section-subtitle">
+              Statt stundenlang Tarife zu vergleichen, haben Sie einen persönlichen Ansprechpartner, der sich um alles
+              kümmert – transparent, verständlich und auf Augenhöhe.
+            </p>
+          </div>
+
+          <div class="benefits-grid">
+            <article class="benefit-card">
+              <div class="benefit-icon">👤</div>
+              <h3 class="benefit-title">Persönliche Beratung</h3>
+              <p class="benefit-text">
+                Kein Callcenter, keine anonyme Hotline – Sie sprechen direkt mit Ihrem festen Ansprechpartner.
+              </p>
+            </article>
+
+            <article class="benefit-card">
+              <div class="benefit-icon">💶</div>
+              <h3 class="benefit-title">Langfristige Ersparnis</h3>
+              <p class="benefit-text">
+                Wir achten nicht nur auf den Einstiegspreis, sondern auf faire Konditionen über die gesamte Laufzeit.
+              </p>
+            </article>
+
+            <article class="benefit-card">
+              <div class="benefit-icon">📄</div>
+              <h3 class="benefit-title">Wir übernehmen den Wechsel</h3>
+              <p class="benefit-text">
+                Kündigung, Neuanmeldung, Formalitäten – all das erledigen wir für Sie, damit Sie keinen Aufwand haben.
+              </p>
+            </article>
+
+            <article class="benefit-card">
+              <div class="benefit-icon">🌱</div>
+              <h3 class="benefit-title">Auf Wunsch Öko-Strom &amp; Gas</h3>
+              <p class="benefit-text">
+                Wenn Ihnen Nachhaltigkeit wichtig ist, finden wir passende Tarife mit zertifizierten Öko-Produkten.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ablauf -->
+       <section id="beratung" class="section">
+      <section class="section" style="background-color:#ffffff;">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">So funktioniert es</div>
+            <h2 class="section-title">In drei Schritten zu Ihrem passenden Tarif.</h2>
+            <p class="section-subtitle">
+              Der Ablauf ist bewusst einfach gehalten – egal ob Sie Privatkunde oder Gewerbekunde sind.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <article class="step-card">
+              <div class="step-number">1</div>
+              <h3 class="step-title">Rechnung senden</h3>
+              <p class="step-text">
+                Sie senden Ihre aktuelle Strom- und/oder Gasrechnung – per WhatsApp, E-Mail oder über das Kontaktformular.
+              </p>
+              <p class="step-note">Je vollständiger die Rechnung, desto genauer unser Vergleich.</p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">2</div>
+              <h3 class="step-title">Tarife prüfen &amp; vergleichen</h3>
+              <p class="step-text">
+                Wir analysieren Ihre aktuellen Konditionen, prüfen Alternativen und suchen passende Angebote für Ihren
+                Bedarf.
+              </p>
+              <p class="step-note">Transparent, verständlich erklärt – ohne Fachchinesisch.</p>
+            </article>
+
+            <article class="step-card">
+              <div class="step-number">3</div>
+              <h3 class="step-title">Entspannt wechseln &amp; sparen</h3>
+              <p class="step-text">
+                Wenn Sie sich für ein Angebot entscheiden, übernehmen wir den kompletten Wechselprozess für Sie.
+              </p>
+              <p class="step-note">Sie behalten Ihre Kosten im Blick – ohne zusätzlichen Aufwand.</p>
+            </article>
+          </div>
+
+          <div class="trust-box">
+            <p class="trust-text">
+              <strong>Hinweis zur Transparenz:</strong>
+              Die Beratung erfolgt durch Cedric Geitmann, selbstständigen Handelsvertreter der TELESON Vertriebs GmbH. Sie zahlen
+              für die Beratung nichts – die Vergütung erfolgt ausschließlich über die Produktpartner.
+            </p>
+            <div class="trust-tag">Selbstständiger Handelsvertreter der TELESON Vertriebs GmbH</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Abschluss-CTA -->
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-inner">
+            <div>
+              <div class="cta-text">Bereit, Ihre Energiekosten prüfen zu lassen?</div>
+              <div class="cta-sub">
+                Senden Sie uns Ihre aktuelle Rechnung – wir melden uns mit einer ehrlichen Einschätzung und einem
+                transparenten Vergleich.
+              </div>
+            </div>
+            <div class="cta-actions">
+<button class="btn-primary" type="button"
+  onclick="window.open('https://wa.me/4915750749995?text=Hallo,%20ich%20m%C3%B6chte%20meine%20Rechnung%20jetzt%20pr%C3%BCfen%20lassen.', '_blank')">
+   <img src="assets/icons/whatsapp.svg" alt="" class="icon">
+  Rechnung jetzt prüfen lassen
+</button>
+
+<button class="btn-whatsapp" type="button"
+  onclick="window.open('https://wa.me/4915750749995?text=Hallo,%20ich%20m%C3%B6chte%20meine%20Rechnung%20per%20WhatsApp%20senden.', '_blank')">
+   <img src="assets/icons/whatsapp.svg" alt="" class="icon">
+  Per WhatsApp senden
+</button>
+<button class="btn-mail" type="button"
+  onclick="window.location.href='mailto:c.geitmann@teleson-vertrieb.com'">
+  <img src="assets/icons/mail.svg" alt="" class="icon">
+  Per E‑Mail senden
+</button>
+
+
+              <button class="btn-secondary" type="button" onclick="window.location.href='kontakt.html'">
+                Zur Kontaktseite
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          &copy; <span id="year"></span> Cedric Geitmann · Ihr Energieberater · Selbstständiger Handelsvertreter der TELESON Vertriebs GmbH.
+        </div>
+        <div class="footer-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
