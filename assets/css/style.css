@@ -268,7 +268,9 @@ nav a:hover::after {
   background-color: #f5faf7;
   border: 1px solid #d5ebdf;
   color: #2e6f49;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .cta-section {
