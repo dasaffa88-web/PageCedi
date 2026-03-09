@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Impressum – Cedric Geitmann</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="container header-inner">
+        <div class="logo">
+          <div class="logo-mark"></div>
+          <div>
+            <div>Cedric Geitmann</div>
+            <div class="logo-sub">Energieberatung & Tarifoptimierung</div>
+          </div>
+        </div>
+        <nav>
+          <a href="index.html">Startseite</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="karriere.html">Karriere</a>
+         <button class="btn-primary" type="button"
+  onclick="window.open('https://wa.me/491606055059?text=Hallo,%20ich%20m%C3%B6chte%20meinen%20Tarif%20pr%C3%BCfen%20lassen.', '_blank')">
+   <img src="assets/icons/whatsapp.svg" alt="" class="icon">
+  Jetzt Tarif prüfen lassen
+</button>
+
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">Rechtliche Angaben</div>
+            <h1 class="section-title">Impressum</h1>
+            <p class="section-subtitle">
+              Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG).
+            </p>
+          </div>
+
+          <div class="hero-card">
+            <h2 class="hero-card-title">
+              <span>•</span> Diensteanbieter
+            </h2>
+            <p class="hero-card-sub">
+              Cedric Geitmann<br>
+              Drosselweg 10<br>
+              58553 Halver<br>
+              Deutschland
+            </p>
+
+        <ul class="hero-list impressum-list">
+  <li>
+    <strong>Kontakt</strong><br>
+    Telefon: 0160 6055059<br>
+    E‑Mail: <a href="mailto:c.geitmann@teleson-vertrieb.com">c.geitmann@teleson-vertrieb.com</a>
+  </li>
+  <li>
+    <strong>Unternehmensform</strong><br>
+    Kleingewerbetreibender nach § 19 UStG
+  </li>
+  <li>
+    <strong>Umsatzsteuer</strong><br>
+    Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.
+  </li>
+</ul>
+
+
+            <div class="hero-card-footer">
+              Dieses Impressum gilt für die Website von Cedric Geitmann
+              zur Energieberatung und Tarifoptimierung.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Cedric Geitmann</div>
+        <div class="footer-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
