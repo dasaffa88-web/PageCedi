@@ -664,10 +664,12 @@ footer {
   align-items: center;
 }
 
-.benefit-icon img {
-  width: 100%;
-  height: 100%;
+.benefit-icon i {
+  width: 40px;
+  height: 40px;
+  color: #2e8b57; /* dein CI-Grün */
 }
+
 
 .contact-form {
   max-width: 600px;        /* Formular wird größer */

@@ -52,17 +52,21 @@
             </p>
 
             <div class="hero-actions">
-              <button class="btn-whatsapp" type="button"
-                onclick="window.open('https://wa.me/491606055059?text=Hallo,%20ich%20habe%20eine%20Frage%20zu%20meinem%20Strom-%20oder%20Gastarif.', '_blank')">
-                <img src="assets/icons/whatsapp.svg" class="icon" alt="">
-                WhatsApp schreiben
-              </button>
+<div id="contact-whatsapp" style="position:relative; top:-200px;"></div>
+<button class="btn-whatsapp" type="button"
+  onclick="window.open('https://wa.me/491606055059?text=Hallo,%20ich%20habe%20eine%20Frage%20zu%20meinem%20Strom-%20oder%20Gastarif.', '_blank')">
+  <img src="assets/icons/whatsapp.svg" class="icon" alt="">
+  WhatsApp schreiben
+</button>
 
-              <button class="btn-mail" type="button"
-                onclick="window.location.href='mailto:c.geitmann@teleson-vertrieb.com'">
-                <img src="assets/icons/mail.svg" class="icon" alt="">
-                E‑Mail senden
-              </button>
+
+<div id="contact-email" style="position:relative; top:-200px;"></div>
+<button class="btn-mail" type="button"
+  onclick="window.location.href='mailto:c.geitmann@teleson-vertrieb.com'">
+  <img src="assets/icons/mail.svg" class="icon" alt="">
+  E‑Mail senden
+</button>
+
             </div>
 
             <p class="hero-note">
@@ -88,29 +92,33 @@
 
     <div class="benefits-grid">
 
-      <article class="benefit-card">
-<div class="benefit-icon">
-  <img src="assets/icons/whatsapp.svg" alt="WhatsApp Icon">
-</div>
-        <h3 class="benefit-title">WhatsApp</h3>
-        <p class="benefit-text">Ideal für schnelle Fragen oder zum Senden Ihrer Rechnung.</p>
-      </article>
+<article class="benefit-card" onclick="document.getElementById('contact-whatsapp').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
+  <div class="benefit-icon">
+    <img src="assets/icons/whatsapp.svg" alt="WhatsApp Icon">
+  </div>
+  <h3 class="benefit-title">WhatsApp</h3>
+  <p class="benefit-text">Ideal für schnelle Fragen oder zum Senden Ihrer Rechnung.</p>
+</article>
 
-      <article class="benefit-card">
-<div class="benefit-icon">
-  <img src="assets/icons/mail.svg" alt="Mail Icon">
-</div>
-        <h3 class="benefit-title">E‑Mail</h3>
-        <p class="benefit-text">Perfekt für Unterlagen, längere Nachrichten oder Rückfragen.</p>
-      </article>
 
-      <article class="benefit-card">
-<div class="benefit-icon">
-  <img src="assets/icons/form.svg" alt="Form Icon">
-</div>
-        <h3 class="benefit-title">Kontaktformular</h3>
-        <p class="benefit-text">Schnell ausgefüllt – ich melde mich zeitnah zurück.</p>
-      </article>
+
+<article class="benefit-card" onclick="document.getElementById('contact-email').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
+  <div class="benefit-icon">
+    <img src="assets/icons/mail.svg" alt="Mail Icon">
+  </div>
+  <h3 class="benefit-title">E‑Mail</h3>
+  <p class="benefit-text">Perfekt für Unterlagen, längere Nachrichten oder Rückfragen.</p>
+</article>
+
+
+<article class="benefit-card" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
+  <div class="benefit-icon">
+    <img src="assets/icons/form.svg" alt="Form Icon">
+  </div>
+  <h3 class="benefit-title">Kontaktformular</h3>
+  <p class="benefit-text">Schnell ausgefüllt – ich melde mich zeitnah zurück.</p>
+</article>
+
 
     </div>
   </div>
@@ -124,9 +132,9 @@
             <h2 class="section-title">Ich melde mich schnellstmöglich bei Ihnen.</h2>
           </div>
 
-<form class="contact-form"
-      action="https://formsubmit.co/c.geitmann@teleson-vertrieb.com"
-      method="POST">
+<div id="contact-form"></div>
+<form class="contact-form" action="https://formsubmit.co/c.geitmann@teleson-vertrieb.com" method="POST">
+
 
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="table">
