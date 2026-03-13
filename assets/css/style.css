@@ -149,6 +149,17 @@ nav a:hover::after {
   display: block;
 }
 
+.page-karriere .hero-image {
+  width: min(760px, 52vw);
+  aspect-ratio: auto;
+}
+
+.page-karriere .hero-image img {
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .hero-eyebrow {
   font-size: 14px;
   font-weight: 600;
@@ -616,6 +627,12 @@ footer {
 
   nav {
     font-size: 15px;
+  }
+
+  .page-karriere .hero-image {
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: auto;
   }
 }
 
